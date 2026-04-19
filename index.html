@@ -23,6 +23,21 @@ html,body{width:100%;height:100%;overflow:hidden;background:#1a0030;font-family:
 #videoEntry.hiding{animation:vFadeOut .8s ease forwards}
 @keyframes vFadeOut{to{opacity:0;pointer-events:none}}
 
+<script>
+    // Blurs and hides the screen if the window loses focus
+    window.addEventListener('blur', function() {
+        document.body.style.filter = 'blur(20px)';
+        document.body.style.opacity = '0';
+    });
+
+    // Brings it back when they click back into the website
+    window.addEventListener('focus', function() {
+        document.body.style.filter = 'none';
+        document.body.style.opacity = '1';
+    });
+</script>
+  
+
 /* MAIN PAGE */
 #mainPage{position:fixed;inset:0;z-index:100;display:none;overflow-y:auto;overflow-x:hidden;background:linear-gradient(160deg,#7b2d8b 0%,#b8478a 30%,#e06090 60%,#f5a0b8 100%)}
 #mainPage.show{display:block}
